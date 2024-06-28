@@ -14,7 +14,6 @@ contract DepositTransaction {
         address receiver,
         uint256 amount
     ) internal {
-        // TODO: DFX-1054 send to clearing house
         token.safeTransferFrom(sender, receiver, amount);
     }
 }

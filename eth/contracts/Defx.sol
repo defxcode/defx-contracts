@@ -25,8 +25,6 @@ contract Defx is
 
     mapping(address => uint64) internal nonces;
 
-
-    event HotWalletUpdated(address oldHotWallet, address newHotWallet);
     /// @custom:oz-upgrades-unsafe-allow constructor
     constructor() {
         _disableInitializers();
@@ -115,8 +113,7 @@ contract Defx is
     function updateHotWallet(
         address hotWalletAddress
     ) public override onlyOwner {
-        // hotWallet = hotWalletAddress;
-        emit HotWalletUpdated(hotWallet, hotWalletAddress);
+        hotWallet = hotWalletAddress;
     }
 
     /**
@@ -133,10 +130,9 @@ contract Defx is
      * @param nonce the nonce to validate
      */
     function validateNonce(address account, uint64 nonce) internal {
-        if (nonces[account] != nonce) {
+        if (++nonces[account] != nonce) {
             revert InvalidNonce();
         }
-        nonces[account]++;
     }
 
     /**
