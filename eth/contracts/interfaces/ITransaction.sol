@@ -12,7 +12,7 @@ interface ITransaction {
     // TODO: figure out if we can upgrade this later
     enum TransactionType {
         Undefined, // A transaction type that is not defined. This is to make sure that default uint value is not used by default
-        Deposit,
-        Withdraw
+        DepositCollateral,
+        WithdrawCollateral
     }
 }
