@@ -7,3 +7,5 @@ error TransactionAmountShouldBeGreaterThanZero();
 error InvalidERC20ContractSetup();
 
 error InvalidNonce();
+
+error InvalidCollateralToken();

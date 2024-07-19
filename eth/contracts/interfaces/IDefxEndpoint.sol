@@ -4,7 +4,7 @@ pragma solidity ^0.8.24;
 import "./IVersion.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-interface IDefx {
+interface IDefxEndpoint {
     function submitTransaction(
         uint8 transactionType,
         uint256 amount,

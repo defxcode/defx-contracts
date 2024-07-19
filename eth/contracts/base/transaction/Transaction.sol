@@ -28,9 +28,9 @@ contract Transaction is ITransaction, DepositTransaction, WithdrawTransaction {
     ) internal pure returns (TransactionType) {
         // TODO: is there a better way to validate enum values?
         if (transactionType == 1) {
-            return TransactionType.Deposit;
+            return TransactionType.DepositCollateral;
         } else if (transactionType == 2) {
-            return TransactionType.Withdraw;
+            return TransactionType.WithdrawCollateral;
         }
         revert InvalidTransactionType();
     }
@@ -47,9 +47,9 @@ contract Transaction is ITransaction, DepositTransaction, WithdrawTransaction {
 
         TransactionType txnType = getTransactionTypeFromUInt(transactionType);
 
-        if (txnType == TransactionType.Deposit) {
+        if (txnType == TransactionType.DepositCollateral) {
             handleDeposit(token, sender, receiver, amount);
-        } else if (txnType == TransactionType.Withdraw) {
+        } else if (txnType == TransactionType.WithdrawCollateral) {
             handleWithdraw(sender, amount);
         }
 

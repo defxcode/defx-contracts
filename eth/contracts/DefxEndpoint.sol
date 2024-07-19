@@ -7,12 +7,12 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 
-import "./interfaces/IDefx.sol";
+import "./interfaces/IDefxEndpoint.sol";
 import "./base/transaction/Transaction.sol";
 import "./base/Version.sol";
 
-contract Defx is
-    IDefx,
+contract DefxEndpoint is
+    IDefxEndpoint,
     Transaction,
     Initializable,
     PausableUpgradeable,
